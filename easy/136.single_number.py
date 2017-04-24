@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        #mine
         dict_ = {}
         for num in nums:
             if num in dict_:
@@ -14,6 +15,9 @@ class Solution(object):
         for name, age in dict_.items():
             if age == 1:
                 print(name)
+
+        #easy
+        print(2*sum(set(nums))-sum(nums))
         		
 
 s = Solution()

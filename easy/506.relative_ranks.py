@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[str]
         """
+        #mine
         dic = {}
         L = sorted(nums,reverse=True)
         L1 = []
@@ -21,6 +22,11 @@ class Solution(object):
             L1.append(dic.get(num))
 
         return L1
+
+        #easy
+        sort = sorted(nums)[::-1]
+        rank = ["Gold Medal", "Silver Medal", "Bronze Medal"] + map(str, range(4, len(nums) + 1))
+        return map(dict(zip(sort, rank)).get, nums)
 
 
 

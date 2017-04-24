@@ -5,6 +5,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        #mine
         L = []
         flag = False;
         for n in findNums:
@@ -19,7 +20,16 @@ class Solution(object):
             if(flag == False):
                 L.append(-1)
             flag = False
-        print L
+        return L
+
+        #easy
+        dmap = {}
+        stack = []
+        for n in nums:
+            while stack and stack[-1] < n:
+                dmap[stack.pop()] = n
+            stack.append(n)
+        print [dmap.get(n, -1) for n in findNums]
 
 s = Solution()
 s.nextGreaterElement([2,0,1],[2,1,0,3])
