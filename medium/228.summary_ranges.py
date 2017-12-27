@@ -4,6 +4,21 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[str]
         """
+        #method_fast
+        if not nums: return []
+        res = []
+        l = r = nums[0]
+        for i in range(1,len(nums)):
+            if nums[i] == r+1:
+                r += 1
+            else:
+                res.append(self.helper(l,r))
+                l = r = nums[i]
+                
+        res.append(self.helper(l,r))
+        return res
+        
+        #method_mine
         if not nums:
             return []
 
@@ -17,9 +32,25 @@ class Solution(object):
                     res.append(str(stack.pop()))
                 else:
                     res.append(str(stack[0])+'->'+str(stack[-1]))
-            stack = []
+                stack = []
+                stack.append(num)
+        if len(stack) == 1:
+            res.append(str(stack.pop()))
+        else:
+            res.append(str(stack[0])+'->'+str(stack[-1]))
 
         return res 
+
+
+
+
+    def helper(self,l,r):
+        if l == r: return str(l)
+        
+        return str(l) + "->" + str(r)
+
+
+        
 
 
 s = Solution()
